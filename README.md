@@ -32,6 +32,12 @@ tailwindcss(),
 
 # npm i -D daisyui@beta
 
-Go to --->app.css
+Go to --->index.css
 @import "tailwindcss";
 @plugin "daisyui";
+
+//time format
+
+# npm install moment --save
+
+# npm i react-fast-marquee
