@@ -41,3 +41,5 @@ Go to --->index.css
 # npm install moment --save
 
 # npm i react-fast-marquee
+
+# npm install react-icons --save
