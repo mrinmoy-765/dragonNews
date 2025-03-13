@@ -43,3 +43,5 @@ Go to --->index.css
 # npm i react-fast-marquee
 
 # npm install react-icons --save
+
+# npm i firebase
