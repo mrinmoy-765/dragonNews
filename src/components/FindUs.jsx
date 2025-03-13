@@ -10,7 +10,7 @@ const FindUs = () => {
           <FaFacebook></FaFacebook>Facebook
         </button>
         <button className="btn join-item justify-start">
-          <FaInstagram></FaInstagram>Instagaram
+          <FaInstagram></FaInstagram>Instagram
         </button>
         <button className="btn join-item justify-start">
           <FaTwitter></FaTwitter>Twitter
