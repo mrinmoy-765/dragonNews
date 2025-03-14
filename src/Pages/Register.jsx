@@ -1,13 +1,39 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { useContext } from "react";
 
 const Register = () => {
+  const { createNewUser, setUser } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = new FormData(e.target);
+    const name = form.get("name");
+    const email = form.get("email");
+    const photo = form.get("photo");
+    const password = form.get("password");
+    console.log({ name, email, photo, password });
+
+    createNewUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setUser(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
   return (
     <div className="min-h-screen flex justify-center items-center bg-gray-100 px-4">
       <div className="bg-white w-full max-w-lg shadow-lg p-10 rounded-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">
           Register Your Account
         </h2>
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Input */}
           <div>
             <label className="block text-gray-600 font-medium mb-1">Name</label>
@@ -30,7 +56,6 @@ const Register = () => {
               name="photo"
               placeholder="Enter photo URL"
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring focus:ring-indigo-300"
-              required
             />
           </div>
 
@@ -44,7 +69,6 @@ const Register = () => {
               type="email"
               placeholder="Enter your email"
               className="w-full border border-gray-300 rounded-lg p-2 focus:ring focus:ring-indigo-300"
-              required
             />
           </div>
 
